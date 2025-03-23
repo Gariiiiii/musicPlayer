@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  body {
+    background-color: #181818;
+    color: #fff;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  ul {
+    list-style: none;
+  }
+
+  .app-container {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: 1fr 110px; 
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    grid-row: 1 / span 2; 
+    background: #202020;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border-right: 1px solid #333;
+  }
+  .sidebar h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  .sidebar-nav ul li {
+    margin: 8px 0;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 6px;
+    border-radius: 4px;
+  }
+  .sidebar-nav ul li:hover {
+    background-color: #333;
+  }
+  .sidebar-footer {
+    margin-top: auto;
+  }
+  .add-song-btn {
+    display: inline-block;
+    background-color: #333;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+  }
+  .add-song-btn:hover {
+    background-color: #444;
+  }
+
+  .main-content {
+    padding: 20px;
+    overflow-y: auto;
+  }
+
+  .albums-section h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .albums-grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: hidden;
+  }
+  .album-card {
+    background-color: #202020;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+    min-width: 160px;
+  }
+  .album-card:hover {
+    transform: scale(1.02);
+  }
+  .album-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+  }
+  .album-info {
+    padding: 10px;
+    text-align: center;
+  }
+  .album-info h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+  .album-info p {
+    font-size: 12px;
+    color: #aaa;
+  }
+
+  .song-list {
+    margin-top: 30px;
+  }
+  .song-list h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  .song-list ul {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 10px;
+  }
+
+  .song-list ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  .song-list ul {
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
+  }
+  .song-list li {
+    margin: 8px 0;
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .song-list li:hover {
+    background-color: #333;
+  }
+  .song-list li.active {
+    background-color: #555;
+  }
+
+  .player-bar {
+    grid-column: 1 / span 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #202020;
+    padding: 10px 20px;
+    border-top: 1px solid #333;
+  }
+  .player-left,
+  .player-center,
+  .player-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .player-left img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  .player-left .song-info {
+    display: flex;
+    flex-direction: column;
+  }
+  .player-left .song-info h4 {
+    font-size: 14px;
+  }
+  .player-left .song-info p {
+    font-size: 12px;
+    color: #aaa;
+  }
+  .player-center i {
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .player-center i:hover {
+    color: #aaa;
+  }
+  #progress {
+    width: 200px;
+    cursor: pointer;
+  }
+  .player-right {
+    font-size: 14px;
+    color: #aaa;
+  }
+
+  /* ----------------------
+     MODAL (ADD SONG)
+  ----------------------- */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0,0,0,0.7);
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-content {
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    text-align: center;
+  }
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .modal-content h2 {
+    margin-bottom: 20px;
+  }
+  .modal-content input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+  }
+  .modal-content button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background: #444;
+    color: #fff;
+    cursor: pointer;
+  }
+  .modal-content button:hover {
+    background: #555;
+  }

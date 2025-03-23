@@ -16,3 +16,4 @@ A simple web-based music player application built using **HTML**, **CSS**, and *
 - **Responsive Design**: The design is responsive and adjusts to different screen sizes.
 
 ## preview:
+https://gariiiiii.github.io/musicPlayer/
